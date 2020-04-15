@@ -1,0 +1,28 @@
+Q1 Try the statements below in REPL. Please answer that there are correct or not and
+explain the reasons.
+a. val id = 9527
+ >> correct, because Kotlin will set it as type Integer as we define id as 9527, a integer.
+b. var number : Int = 5.6
+ >> not correct, since 5.6 is not an integer.
+c. var title = "Hello Kotlin!"
+ >> correct, because Kotlin will set it as type String as we define the variable as a String.
+d. val content : String = null
+ >>not correct, because in Kotlin, variables type without a question mark can not be null.
+e. val number : Double? = 556.6
+ >>correct, because 556.6 is a double.
+f. var list: List<String>? = listOf(null, null)
+ >>not correct, because the question mark should be inside <>.
+g. var list: List<String?>? = listOf("Wayne", "Chen")
+ >>correct, it is a list of string that allowing null.
+h. list.size
+ >>not correct, because the list above allows null to exist.
+i. list?.size
+ >>correct, because the list above allows null to exist.
+ 
+Q2  Read the code below, choose the correct answer and explain the reason.
+  >>c. "Your grace.", because the message.length = 39
+  
+Q3Which answer is the correct way to initialize the array to output.
+  >>d. val array = Array(6) { 1000.0.pow(it) }.
+  >> Because Array(6){it} ={0,1,2,3,4,5}. and if this array becomes the power of 1000 would get the result.
+ 
