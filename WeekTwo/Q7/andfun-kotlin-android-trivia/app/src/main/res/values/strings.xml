@@ -1,0 +1,58 @@
+<!--
+  ~ Copyright 2018, The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<resources>
+    <string name="app_name">Android Trivia</string>
+    <string name="game_over">Game Over</string>
+    <string name="try_again">Try Again?</string>
+    <string name="position">Position</string>
+    <string name="select_an_avatar">Select an Avatar</string>
+    <string name="android_trivia">Android Trivia</string>
+    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\n\nConsider modifying the questions and graphics to make this game your own!</string>
+    <string name="rules_text">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
+    <string name="rules">Rules</string>
+    <string name="about">About</string>
+    <string name="trivia_hint">Trivia Hint</string>
+    <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
+    <string name="title_about_trivia">About Trivia</string>
+    <string name="title_trivia_rules">Trivia Rules</string>
+    <string name="share_success_text">I mastered #UdacityAndroidTrivia with %1$d/%2$d correct questions!</string>
+    <string name="submit_button">Submit</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="share">Share</string>
+    <string name="sharing_not_available">Sharing Not Available</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_image">profile image of James</string>
+    <string name="profile_name">Name</string>
+    <string name="profile_nickname">Nickname</string>
+    <string name="real_name">Tsung Han</string>
+    <string name="real_nickname">James</string>
+    <string name="about_me">About Me</string>
+    <string name="bio">Hi, this is James from Taiwan.
+\n\nI am a saxophonist.
+\n\nI started to learn sax since I was 13 years old, as a junior high school student.
+\n\nI was in the school orchestra, and played as 1st alto sax for the most of the time.
+\nAfter 3 years of learing, I went to high school, in which I joined the school Marching Band for a year.
+\nWe went on national music competitions, outdoor marching festivals...etc. The training in marching band was really exhausted, but worth it.
+\n\nAfter that, I went abroad to France for an exchange student program.
+\nDuring the stay, I brought an alto sax with me, and went to the local conservatoire as a student and a musician of the city orchestra, fanfare, and jazz band.
+\n\nBack to Taiwan, I ended up joining the jazz club in the university, and joined Koswing Big Band afterwards in Tainan.
+\nIt was a very pleasant and a great pleasure to have the opportunity to play along with these great musician.\n\n</string>
+    <string name="profile">Profile</string>
+    <string name="next_match">Next Match</string>
+</resources>

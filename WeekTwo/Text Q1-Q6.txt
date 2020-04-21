@@ -1,0 +1,19 @@
+Q1 Inheritance可以讓一個子類別繼承父類別的參數以及功能，並且能夠在其中自行調整。
+就像是一個大賣場有一個公版的產品規格書，我們今天想要在這個賣場根據這個公版的產品規格書寫一個專屬於咖啡的規格書，
+在程式語言的世界就可以用Inheritance來創建這個類別，而不用從頭打起。
+
+Q2 具我的理解，所有的String 都應該要被放在res>>value>>strings.xml檔案內。
+最單純的方式應該是直接在strings.xml內拆成不同的id的string即可。
+(找split string的code)
+
+Q3 在Android是用Bundle class。主要使用的key都是string，
+並可以儲存對應的parcelble value(type包含Byte、double、float、int、long、string以及上述的array)
+(找bundle的code)
+
+Q4ArrayList vs LinkedList
+
+Q5 具目前查到的，在C#語言，Value Type variables指的是直接存在於記憶體的實值變數，像是int、long、byte等。
+其對應的就是reference type，指的是參考用，電腦必須轉換的變數，像是string。
+但在Java裡面，
+
+Q6 Int最大的是2,147,483,647，要更大的話要把data type設定為Long。
