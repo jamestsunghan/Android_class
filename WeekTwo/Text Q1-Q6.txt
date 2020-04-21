@@ -7,13 +7,24 @@ Q2 具我的理解，所有的String 都應該要被放在res>>value>>strings.xml檔案內。
 (找split string的code)
 
 Q3 在Android是用Bundle class。主要使用的key都是string，
-並可以儲存對應的parcelble value(type包含Byte、double、float、int、long、string以及上述的array)
-(找bundle的code)
+並可以儲存對應的parcelble value(type包含Byte、double、float、int、long、string以及上述的array)。
+以下是我用toast的方式在Android測試的code：
+(在MainActicity class內的Oncreate中)
+var bundle = bundleOf(
+            "One" to "Happy",
+            "Two" to 2,
+            "Three" to "trois",
+            "Four" to 4.0,
+            "Five" to -5.5
+        )
+        var list = listOf("One","Two","Three","Four","Five")
+        for (i in 0..4) {
+            Toast.makeText(this, "Key: ${list[i]} - Value: ${bundle.get(list[i]).toString()}", Toast.LENGTH_LONG).show()
+        }
 
 Q4ArrayList vs LinkedList
 
 Q5 具目前查到的，在C#語言，Value Type variables指的是直接存在於記憶體的實值變數，像是int、long、byte等。
 其對應的就是reference type，指的是參考用，電腦必須轉換的變數，像是string。
-但在Java裡面，
 
 Q6 Int最大的是2,147,483,647，要更大的話要把data type設定為Long。
