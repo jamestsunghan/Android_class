@@ -1,15 +1,15 @@
 
-open class Human(val name:String, val mana:Boolean){
+open class Human(val name:String, val hasMana:Boolean){
     open fun attack(){
         println("$name use Fist Attack!")
     }
     fun manaCheck(){
-        if (mana == true){
+        if (hasMana){
             println("$name has mana!")
         } else  println("$name has no mana!")
     }
 }
-class Mage (name : String, mana : Boolean): Human(name, mana){
+class Mage (name : String, hasMana : Boolean): Human(name, hasMana){
     override fun attack(){
         println("$name use Fireball!")
     }
