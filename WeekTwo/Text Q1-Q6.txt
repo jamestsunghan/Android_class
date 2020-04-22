@@ -2,14 +2,22 @@ Q1 Inheritance可以讓一個子類別繼承父類別的參數以及功能，並且能夠在其中自行調整。
 就像是一個大賣場有一個公版的產品規格書，我們今天想要在這個賣場根據這個公版的產品規格書寫一個專屬於咖啡的規格書，
 在程式語言的世界就可以用Inheritance來創建這個類別，而不用從頭打起。
 
-Q2 具我的理解，所有的String 都應該要被放在res>>value>>strings.xml檔案內。
+Q2 具我的理解，若是排版相關的String 都應該要被放在res>>value>>strings.xml檔案內。
 最單純的方式應該是直接在strings.xml內拆成不同的id的string即可。
-(找split string的code)
+若要用語法拆，則可以使用"A String".split(/* 標示定界符 */)
+
+以下是嘗試寫的code：
+//
+val words = "Apple Banana Cat Dog Egg".split(" ") //拆開之後會變成一個ArrayList
+for (i in words.indices) {
+            Toast.makeText(this, "${words[i]}",Toast.LENGTH_LONG).show()}
+//
 
 Q3 在Android是用Bundle class。主要使用的key都是string，
 並可以儲存對應的parcelble value(type包含Byte、double、float、int、long、string以及上述的array)。
-以下是我用toast的方式在Android測試的code：
-(在MainActicity class內的Oncreate中)
+以下是嘗試用toast的方式在Android測試的code：
+
+//(在MainActicity class內的Oncreate中)
 var bundle = bundleOf(
             "One" to "Happy",
             "Two" to 2,
@@ -17,14 +25,26 @@ var bundle = bundleOf(
             "Four" to 4.0,
             "Five" to -5.5
         )
-        var list = listOf("One","Two","Three","Four","Five")
-        for (i in 0..4) {
+        var list = bundle.keySet().toList()
+        for (i in list.indices) {
             Toast.makeText(this, "Key: ${list[i]} - Value: ${bundle.get(list[i]).toString()}", Toast.LENGTH_LONG).show()
         }
+//
 
-Q4ArrayList vs LinkedList
+Q4 兩者不同的地方在於資料結構，一種是用Array的方式，另一種則是用Linked的方式。
+Array指的是數組陣列，是用索引(index)來查找記憶體位置，
+記憶體位置為連續的，所以知道索引就可以直接知道位置。
+Linked指的是鏈結串列，也就是資料是被鏈結在一起的。每個資料節點除了儲存本身資料外，
+也儲存指向下一個節點的資料。記憶體位置也因此可以是不連續的。
+Array的好處在於查找資料很快，但在增減的時候會需要擴充位置，並且可能需要移動本來資料位置。
+Linked的好處是增加與減少很快，只要增加pointer就好，
+但查找就需要經過所有需要經過的節點與pointer，因此會比較慢。
 
-Q5 具目前查到的，在C#語言，Value Type variables指的是直接存在於記憶體的實值變數，像是int、long、byte等。
+而在Kotlin中，預設的List是Arraylist，並且為不可增減的。若需增減則要寫成mutablelist，
+推測就是因應資料結構特性的。
+
+
+Q5 具目前查到的，Value Type variables指的是直接存在於記憶體的實值變數，像是int、long、byte等。
 其對應的就是reference type，指的是參考用，電腦必須轉換的變數，像是string。
 
 Q6 Int最大的是2,147,483,647，要更大的話要把data type設定為Long。
