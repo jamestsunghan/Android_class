@@ -1,0 +1,52 @@
+Q1 封裝(Encapsulation)是讓資料只能夠在指定的區域下讀寫，並在其他區域內只能唯讀的一種coding方法。
+這樣做的好處有：
+1. 讓資料只能在指定區域內編輯
+2. 方便調整與除錯
+3. 讓資料達到責任分工的目的
+4. 避免不小心在其他區域編輯到
+
+Q2 & Q3 enum 指的是列舉，就是把需要的值或類別都列舉出來。最常見的用法適用在表達3種以上(若是兩種大多都使用布林)，
+且難以用數值大小來區別的有限狀態切換。比方說guess-it app中的振動方式。
+如果trivia-app答錯不會立即結束，而會根據答對的題數數量有三個以上不同的結局(比方說0題->game_over；1題->初心者；2題->差一點；3題->game_won)
+也許就可以使用enum class。
+這麼作主要可以增加code的可讀性，比較能夠知道自己做了甚麼。
+
+Q3 在Kotlin裡面，enum是一種類別。並可以搭配companion object 或是abstract fun來override。
+自己試圖從零寫了一個enum class，想表達在玩某種骰子系桌遊時，
+可以抽機會卡，並有可以讓骰出來的步數*2、*3、-2、+2或歸零，如下。
+
+import java.util.*
+
+enum class ChanceCard(){
+    MINUS_TWO{override fun withdraw(step:Int):Int{return step - 2}},
+    MULTI_TWO{override fun withdraw(step:Int):Int{return step * 2}},
+    MULTI_THREE{override fun withdraw(step:Int):Int{return step * 3}},
+    PLUS_TWO{override fun withdraw(step:Int):Int{return step + 2}},
+    ZERO{override fun withdraw(step:Int):Int{return 0}};
+    abstract fun withdraw(step:Int):Int
+}
+
+fun main(args: Array<String>) {
+
+    val step = Random().nextInt(6)+1
+
+    val myChanceCards = listOf(ChanceCard.MINUS_TWO,ChanceCard.MULTI_TWO,ChanceCard.MULTI_THREE,ChanceCard.ZERO,ChanceCard.PLUS_TWO)
+    val chanceCard = myChanceCards[Random().nextInt(5)+1]
+
+    println(step)
+    println(chanceCard)
+    println(chanceCard.withdraw(step))
+
+Q4 LinearLayout指的是線性布局，可以是水平或是垂直的。會依照開發者所規定的次序依次排列。
+也就是說，內部物件會依據此layout決定是垂直或水平，並依照輸入次序排序。
+如果我們想要用LinearLayout組成二維的排列，就必須使用兩層的LinearLayout。
+RelativeLayout除了可以針對parent設定相對關係，也可以讓內部物件作為另一個內部物件的參考點，放置在該物件的上下左右皆可，也就跳脫單層LinearLayout的侷限性。
+
+Q5 ConstaintLayout則提供了不同Positioning的方式。
+1. 他可以以parent做為參考點，靠左、靠右、置中都行，並可以直接定義距離該參考位置的距離，或者水平、垂直空間中的比例
+2. 他可以以內部物件做為參考基準。
+3. 每個物件都有上下左右四個邊作為對其基準。
+4. 以第一至三點，就可以達到排版軟體幾乎所有的對齊方式。
+5. 他可以以文字底線的方式對齊。
+6. 可以把2個以上的物件Chain起來，變成類似於LinearLayout的狀態。
+基本上就可以比較自由而彈性的運用整個版面。
