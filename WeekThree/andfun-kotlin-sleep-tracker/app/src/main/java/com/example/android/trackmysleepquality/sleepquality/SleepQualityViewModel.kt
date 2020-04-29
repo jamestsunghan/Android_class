@@ -33,7 +33,7 @@ class SleepQualityViewModel(
 
     private val _navigateToSleepTracker = MutableLiveData<Boolean>()
     val navigateToSleepTracker : LiveData<Boolean> get() = _navigateToSleepTracker
-
+    val info = MutableLiveData<String>()
     fun doneNavigating(){
         _navigateToSleepTracker.value = false
     }
@@ -44,11 +44,13 @@ class SleepQualityViewModel(
             withContext(Dispatchers.IO){
                 val tonight = database.get(sleepNightKey) ?: return@withContext
                 tonight.sleepQuality = quality
+                if(info.value != null) tonight.sleepQualityInfo = info.value!!
                 database.update(tonight)
             }
             _navigateToSleepTracker.value = true
         }
     }
+
 
     override fun onCleared() {
         super.onCleared()
