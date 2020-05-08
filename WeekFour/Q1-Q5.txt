@@ -1,0 +1,63 @@
+Q1根據目前的理解，Polymorphism是中文翻譯是多型。
+定義為發送訊息的人並不需要知道接收者的類別，也不需要知道接收者屬於誰。
+目的是能夠為不同的資料形體提供統一的介面。
+像我們所學的Kotlin很常在使用的繼承，就是Polymorphism的表現。
+
+Q2(Lifecycle)
+當第一次開啟一個手機app的時候，手機會經過幾個步驟。
+首先，會先編譯，然後繪製UI，也就是onCreate()；
+下一步則會將繪製好的UI呈現在螢幕上，也就是onStart()；
+之後通常馬上會執行onResume()，因為這個時候使用正focus在這個UI上。
+如果在使用得過程當中，這個activity不在焦點上的時候，像是傳送照片視窗跳出等等，這個時候則會call onPause()，
+如果使用者暫時離開這個acticity，(如接電話、按Home鍵等)，則會call onStop()，
+也就是指UI徹底離開手機螢幕，但可以叫回的狀態。這個時候如果回到app，就會call Restart()，並通常會直接onResume()。
+如果我們這個時候按下back鍵，app就會依序onPause、onStop、接續onDestroy()。
+但如果在onStop()的階段，手機需要用到暫存記憶體等等因素，是有可能將app的UI暫存刪掉的，視同於onDestroy()
+
+Q3Android Jetpack是Google在I/O 2018大會上發布的開發者套件，其中包含了以下四個面向：
+i. Architecture套件：包含Data Binding、Lifecycles、LiveData、Navigation、
+Paging、Viewmodel、WorkManager等
+ii. UI：Animation&Transitions、Auto TV&wear、Emoji、Layout、Palette
+iii. Behaviors：DownloadManager、Media&Playback、Permissions、Notifications、Sharing、Slice
+iv. Foundation：Appcompat、KTX、Multidex、Test
+
+
+Q4
+Acticity：在螢幕上正在用作的主要app
+
+Service：在背景自行運作的app，分為強制持續運作的(像是背景音樂)或是彈性持續運作的(下載)
+
+Content Provider：提供給其他app功能，並可以導入的，像是gmail App就有提供分享的功能
+
+Broadcast Receiver：在背景執行，並設定一個進入的時間點或條件，當條件被觸發，app就會啟動進UI，像是鬧鐘、line通話等
+
+以上四個是就是4種可以進入到App的方式。
+
+Notification：當app出現一些需要提醒使用者的訊息時，可能是收到簡訊、更新等，
+會跳出在UI的部分視窗或是下拉出現的表單，就是Notification。
+最一開始會出現於status bar，下拉的表單稱為Notification drawer。
+短暫跳出的局部UI為Heads-up notification(通常為訊息)。
+notification也會出現在鎖定螢幕的UI上。
+
+Runtime Permission：app有時候會需要app外的其他功能或資料，就需要經過user的同意。
+像是前幾堂課出現的vibrate以及network。
+做法都是在app的manifest檔案中加入uses-permission tag
+這樣做的話，在開啟app的時候，會跳出一個視窗詢問user是否同意此app使用這個功能。
+
+ANR = Application No Responding，俗稱「沒有回應」。系統會自動跳出如果app出現以下狀況：
+1. 如果app在執行中，並在一個事件後(可能是input、觸碰螢幕、按按鈕等)5秒鐘內沒有任何回應
+2. 如果app在background，但執行太長的時間。
+
+OOM = Out Of Memory，也就是暫存記憶體不足。也沒有能從garbage collector那邊回收的記憶體。
+
+Exception：程式當中會出現的例外。在寫程式的時候如果這個例外並非RuntimeException的時候，
+就會需要使用try catch來管理。
+
+Material Design：android有提供了UI設計的框架、介面以及元件的平台，即為Material Design。
+框架包含了Surfaces and shadows、Imagery、Colors(Palette API)、Metrics and keylines、Meaning motion...等
+介面則包含system status bar、Appbar and toolbars、Tabs、navigation drawer、bottom navigation...等
+元件包含bottons、tiles&lists、cards、search inline-bar、dividers、empty states...等
+
+Q5 (Coroutine)
+Coroutine是一個以非同步(asynchronous)的方式來執行的code。因為app的特性是需要讓UI thread非常的順暢，
+所以我們在執行其他需要比較重的任務的時候，就可以使用coroutine。常見的使用情境為從database或network讀取data、或是調整data。
